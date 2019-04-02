@@ -40,3 +40,4 @@ script:
       gcc -v && g++ -v && cmake --version;
       make -j2;
     fi
+

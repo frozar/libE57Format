@@ -54,8 +54,6 @@ git:
 matrix:
   - name: "Linux xenial"
     dist: xenial
-  - name: "Linux trusty"
-    dist: trusty
 
 compiler:
   - clang

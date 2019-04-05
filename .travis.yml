@@ -82,7 +82,8 @@ addons:
 
 before_script:
   - env | sort
-  - echo $TRAVIS_OS_NAME
+  - echo ${BUILD_TYPE}
+  - echo ${TRAVIS_OS_NAME}
   - mkdir build-${BUILD_TYPE}
   - cd build-${BUILD_TYPE}
   - cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ..

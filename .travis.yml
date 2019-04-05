@@ -15,11 +15,13 @@ git:
 
 matrix:
   include:
-  - os: linux
+  - name: "Linux gcc Debug"
+    os: linux
     dist: trusty
     compiler: gcc
     env: BUILD_TYPE=Debug
-  - os: linux
+  - name: "Linux gcc Release"
+    os: linux
     dist: trusty
     compiler: gcc
     env: BUILD_TYPE=Release

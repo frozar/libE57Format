@@ -6,7 +6,7 @@ matrix:
     - os: linux
       dist: xenial
     - os: linux
-      dist: trusty
+      env: VERSION=1.11 VARIANT=alpine3.9
 
 env:
   global:
@@ -23,6 +23,7 @@ compiler:
 
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+  - echo "TRAVIS_OS_NAME: $TRAVIS_OS_NAME"
 
 addons:
   apt:

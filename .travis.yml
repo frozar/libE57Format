@@ -1,13 +1,12 @@
 sudo: false
 language: cpp
+git:
+  depth: 1
 
-matrix:
-  include:
-    - os: linux
-      dist: xenial
-      env: BUILD_TYPE=Release
-    - os: linux
-      env: VERSION=1.11 VARIANT=alpine3.9 BUILD_TYPE=Debug
+os: linux
+dist:
+  - xenial
+  - trusty
 
 env:
   global:
@@ -40,7 +39,7 @@ addons:
 
 before_script:
   - env | sort
-  - echo '\$TRAVIS_OS_NAME'
+  - echo $TRAVIS_OS_NAME
   - mkdir build-${BUILD_TYPE}
   - cd build-${BUILD_TYPE}
   - cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ..

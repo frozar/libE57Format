@@ -1,7 +1,12 @@
-os: linux
-dist: xenial
 sudo: false
 language: cpp
+
+matrix:
+  include:
+    - os: linux
+      dist: xenial
+    - os: linux
+      dist: trusty
 
 env:
   global:

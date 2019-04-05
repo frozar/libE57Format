@@ -52,6 +52,7 @@ matrix:
     env: BUILD_TYPE=Release
   - name: "Windows"
     os: windows
+    env: BUILD_TYPE=Debug
 
 env:
   global:
@@ -76,6 +77,13 @@ addons:
 
 before_script:
   - env | sort
+  - if [ "$TRAVIS_OS_NAME" == 'windows' ] ; then
+      git clone https://github.com/Microsoft/vcpkg.git
+      cd vcpkg
+      ./bootstrap-vcpkg.sh
+      vcpkg.exe install xerces-c --triplet x64-windows
+      pwd
+    fi
   - echo ${BUILD_TYPE}
   - echo ${TRAVIS_OS_NAME}
   - mkdir build-${BUILD_TYPE}

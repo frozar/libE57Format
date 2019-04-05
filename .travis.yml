@@ -8,57 +8,48 @@ cache:
 git:
   depth: 1
 
-# matrix:
-#   include:
-#   - name: "Trusty gcc Debug"
-#     os: linux
-#     dist: trusty
-#     compiler: gcc
-#     env: BUILD_TYPE=Debug
-#   - name: "Trusty gcc Release"
-#     os: linux
-#     dist: trusty
-#     compiler: gcc
-#     env: BUILD_TYPE=Release
-#   - name: "Trusty clang Debug"
-#     os: linux
-#     dist: trusty
-#     compiler: clang
-#     env: BUILD_TYPE=Debug
-#   - name: "Trusty clang Release"
-#     os: linux
-#     dist: trusty
-#     compiler: clang
-#     env: BUILD_TYPE=Release
-#   - name: "Xenial gcc Debug"
-#     os: linux
-#     dist: xenial
-#     compiler: gcc
-#     env: BUILD_TYPE=Debug
-#   - name: "Xenial gcc Release"
-#     os: linux
-#     dist: xenial
-#     compiler: gcc
-#     env: BUILD_TYPE=Release
-#   - name: "Xenial clang Debug"
-#     os: linux
-#     dist: xenial
-#     compiler: clang
-#     env: BUILD_TYPE=Debug
-#   - name: "Xenial clang Release"
-#     os: linux
-#     dist: xenial
-#     compiler: clang
-#     env: BUILD_TYPE=Release
-
 matrix:
-  global:
-    - name: "Linux xenial"
-      dist: xenial
-
-compiler:
-  - clang
-  - gcc
+  include:
+  - name: "Trusty gcc Debug"
+    os: linux
+    dist: trusty
+    compiler: gcc
+#    env: BUILD_TYPE=Debug
+  - name: "Trusty gcc Release"
+    os: linux
+    dist: trusty
+    compiler: gcc
+#    env: BUILD_TYPE=Release
+  - name: "Trusty clang Debug"
+    os: linux
+    dist: trusty
+    compiler: clang
+#    env: BUILD_TYPE=Debug
+  - name: "Trusty clang Release"
+    os: linux
+    dist: trusty
+    compiler: clang
+#    env: BUILD_TYPE=Release
+  - name: "Xenial gcc Debug"
+    os: linux
+    dist: xenial
+    compiler: gcc
+#    env: BUILD_TYPE=Debug
+  - name: "Xenial gcc Release"
+    os: linux
+    dist: xenial
+    compiler: gcc
+#    env: BUILD_TYPE=Release
+  - name: "Xenial clang Debug"
+    os: linux
+    dist: xenial
+    compiler: clang
+#    env: BUILD_TYPE=Debug
+  - name: "Xenial clang Release"
+    os: linux
+    dist: xenial
+    compiler: clang
+#    env: BUILD_TYPE=Release
 
 env:
   global:

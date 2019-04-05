@@ -51,9 +51,10 @@ git:
 #     compiler: clang
 #     env: BUILD_TYPE=Release
 
-matrix:
-  - BUILD_TYPE=Debug
-  - BUILD_TYPE=Release
+env:
+  matrix:
+    - BUILD_TYPE=Debug
+    - BUILD_TYPE=Release
 
 compiler:
   - clang

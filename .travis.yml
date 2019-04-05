@@ -50,6 +50,8 @@ matrix:
     dist: xenial
     compiler: clang
     env: BUILD_TYPE=Release
+  - name: "Windows"
+    os: windows
 
 env:
   global:
@@ -73,8 +75,12 @@ addons:
     branch_pattern: coverity_scan
 
 before_script:
+  - env | sort
+  - echo ${BUILD_TYPE}
+  - echo ${TRAVIS_OS_NAME}
   - mkdir build-${BUILD_TYPE}
   - cd build-${BUILD_TYPE}
+  - pwd
   - cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ..
 
 script:

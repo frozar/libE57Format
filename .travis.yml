@@ -81,11 +81,11 @@ before_script:
 script:
   - |
     if [ "$TRAVIS_OS_NAME" == 'windows' ] ; then
-      git clone https://github.com/Microsoft/vcpkg.git
-      cd vcpkg
-      ./bootstrap-vcpkg.sh
+      git clone https://github.com/Microsoft/vcpkg.git && \
+      cd vcpkg && \ 
+      pwd && \ 
+     ./bootstrap-vcpkg.sh && \
       vcpkg.exe install xerces-c --triplet x64-windows
-      pwd
     fi
   - echo ${BUILD_TYPE}
   - echo ${TRAVIS_OS_NAME}

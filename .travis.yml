@@ -14,50 +14,47 @@ matrix:
     os: linux
     dist: trusty
     compiler: gcc
-#    env: BUILD_TYPE=Debug
+    env: BUILD_TYPE=Debug
   - name: "Trusty gcc Release"
     os: linux
     dist: trusty
     compiler: gcc
-#    env: BUILD_TYPE=Release
+    env: BUILD_TYPE=Release
   - name: "Trusty clang Debug"
     os: linux
     dist: trusty
     compiler: clang
-#    env: BUILD_TYPE=Debug
+    env: BUILD_TYPE=Debug
   - name: "Trusty clang Release"
     os: linux
     dist: trusty
     compiler: clang
-#    env: BUILD_TYPE=Release
+    env: BUILD_TYPE=Release
   - name: "Xenial gcc Debug"
     os: linux
     dist: xenial
     compiler: gcc
-#    env: BUILD_TYPE=Debug
+    env: BUILD_TYPE=Debug
   - name: "Xenial gcc Release"
     os: linux
     dist: xenial
     compiler: gcc
-#    env: BUILD_TYPE=Release
+    env: BUILD_TYPE=Release
   - name: "Xenial clang Debug"
     os: linux
     dist: xenial
     compiler: clang
-#    env: BUILD_TYPE=Debug
+    env: BUILD_TYPE=Debug
   - name: "Xenial clang Release"
     os: linux
     dist: xenial
     compiler: clang
-#    env: BUILD_TYPE=Release
+    env: BUILD_TYPE=Release
 
 env:
   global:
     # For coverity
     - secure: "Ddou0BLHkn4V8b/Q6E56lUVz4woSXS8eI0IzRxyYqkDvXtqqjSlxqtu2fuU/awieA6Y5rzEHZrpHnvJU80uC+gnlIfMkIU9O0Cj0rwppKTTTWpXzohrESfXzJc8iZs+3gxpReZhWp6IGrfitdudfpFAgLWBENgzemWsHy7prnDcQQA99FBUhCuhbqhtXRR8wxXUWNQr2RntbFbH22Eqcwbd5a+OYpPSCtV296ZII6/iskMI3OeXCEGnqKBxe2L9oohcrTS/0beCLM7dhCflelns8MTGa1AYmJEwXf3/n4PmwRo7EjTpSBow70n9SCps5mS42+wRDU8FMBTNgqzBNjOdDojrPhijnEPfhRzFygsyfgoEmuZjD2MuXBSIwpYa9mFusVpN2BON3zZLvmw5Y1HuBadf3yLoD0/Vy1K6YBnQRMIm5JhVYj4hY8ogtPNVfjYjckHEPlCRcwzS5rwh/sZ2eYW30LW3IusCB2wu3/iR97jamBu3sEOY67ln3M6EOjnMPHApBqsVhapQv+XtOtxaVPzKVc1u6tlzRRijPCfcN6ssNHzFh1feqFopthapY4erfA+DrjQivW+E49Yv306ig6HVBbrMkOR+TX+bgDmZisLtbJ8d2eym063KuojBRqDlq8wrz0MlUXVIz2H0FhXPIho8z9Uj7fkswM+jQiJc="
-  matrix:
-    - BUILD_TYPE=Debug
-    - BUILD_TYPE=Release
 
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
@@ -76,12 +73,8 @@ addons:
     branch_pattern: coverity_scan
 
 before_script:
-  - env | sort
-  - echo ${BUILD_TYPE}
-  - echo ${TRAVIS_OS_NAME}
   - mkdir build-${BUILD_TYPE}
   - cd build-${BUILD_TYPE}
-  - pwd
   - cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ..
 
 script:

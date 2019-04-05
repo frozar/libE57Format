@@ -77,7 +77,10 @@ addons:
 
 before_script:
   - env | sort
-  - if [ "$TRAVIS_OS_NAME" == 'windows' ] ; then
+  
+script:
+  - |
+    if [ "$TRAVIS_OS_NAME" == 'windows' ] ; then
       git clone https://github.com/Microsoft/vcpkg.git
       cd vcpkg
       ./bootstrap-vcpkg.sh
@@ -90,8 +93,6 @@ before_script:
   - cd build-${BUILD_TYPE}
   - pwd
   - cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ..
-
-script:
   - if [[ "${COVERITY_SCAN_BRANCH}" != 1 ]]; then
       gcc -v && g++ -v && cmake --version;
       make -j2;

@@ -84,7 +84,7 @@ script:
       git clone https://github.com/Microsoft/vcpkg.git && \
       cd vcpkg && \ 
       pwd && \ 
-      echo ".\bootstrap-vcpkg.bat" | cmd.exe && \
+      echo ".\bootstrap-vcpkg.bat" | powershell.exe && \
       vcpkg.exe install xerces-c --triplet x64-windows
     fi
   - echo ${BUILD_TYPE}

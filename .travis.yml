@@ -39,7 +39,8 @@ addons:
     branch_pattern: coverity_scan
 
 before_script:
-  - echo "TRAVIS_OS_NAME: $TRAVIS_OS_NAME"
+  - env | sort
+  - echo TRAVIS_OS_NAME: $TRAVIS_OS_NAME
   - mkdir build-${BUILD_TYPE}
   - cd build-${BUILD_TYPE}
   - cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ..

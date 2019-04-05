@@ -5,8 +5,9 @@ matrix:
   include:
     - os: linux
       dist: xenial
+      env: BUILD_TYPE=Release
     - os: linux
-      env: VERSION=1.11 VARIANT=alpine3.9
+      env: VERSION=1.11 VARIANT=alpine3.9 BUILD_TYPE=Debug
 
 env:
   global:
@@ -23,7 +24,6 @@ compiler:
 
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
-  - echo "TRAVIS_OS_NAME: $TRAVIS_OS_NAME"
 
 addons:
   apt:
@@ -39,6 +39,7 @@ addons:
     branch_pattern: coverity_scan
 
 before_script:
+  - echo "TRAVIS_OS_NAME: $TRAVIS_OS_NAME"
   - mkdir build-${BUILD_TYPE}
   - cd build-${BUILD_TYPE}
   - cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ..

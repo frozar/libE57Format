@@ -11,7 +11,7 @@ git:
 os: linux
 dist:
   - xenial
-#   - trusty
+  - trusty
 
 env:
   global:

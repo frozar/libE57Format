@@ -1,12 +1,17 @@
 sudo: false
+
 language: cpp
+
+cache:
+  ccache: true
+
 git:
   depth: 1
 
 os: linux
-dist:
-  - xenial
-  - trusty
+# dist:
+#   - xenial
+#   - trusty
 
 env:
   global:

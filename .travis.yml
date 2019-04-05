@@ -13,10 +13,9 @@ matrix:
       env: BUILD_TYPE=Debug
     - os: linux
       env: BUILD_TYPE=Release
-
-compiler:
-  - clang
-  - gcc
+  compiler:
+    - clang
+    - gcc
 
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-

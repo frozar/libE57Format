@@ -15,37 +15,43 @@ git:
 
 matrix:
   include:
-  - name: "Linux gcc Debug"
+  - name: "Trusty gcc Debug"
     os: linux
     dist: trusty
     compiler: gcc
     env: BUILD_TYPE=Debug
-  - name: "Linux gcc Release"
+  - name: "Trusty gcc Release"
     os: linux
     dist: trusty
     compiler: gcc
     env: BUILD_TYPE=Release
-  - os: linux
+  - name: "Trusty clang Debug"
+    os: linux
     dist: trusty
     compiler: clang
     env: BUILD_TYPE=Debug
-  - os: linux
+  - name: "Trusty clang Release"
+    os: linux
     dist: trusty
     compiler: clang
     env: BUILD_TYPE=Release
-  - os: linux
+  - name: "Xenial gcc Debug"
+    os: linux
     dist: xenial
     compiler: gcc
     env: BUILD_TYPE=Debug
-  - os: linux
+  - name: "Xenial gcc Release"
+    os: linux
     dist: xenial
     compiler: gcc
     env: BUILD_TYPE=Release
-  - os: linux
+  - name: "Xenial clang Debug"
+    os: linux
     dist: xenial
     compiler: clang
     env: BUILD_TYPE=Debug
-  - os: linux
+  - name: "Xenial clang Release"
+    os: linux
     dist: xenial
     compiler: clang
     env: BUILD_TYPE=Release
